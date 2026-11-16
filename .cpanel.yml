@@ -1,0 +1,7 @@
+---
+deployment:
+  tasks:
+    # The domain serves this project's public/ directory; deploy the application one level above it.
+    - export DEPLOYPATH=/home/creyjzkn/peanel.com/norsworthy
+    - /bin/cp -R app public system writable "$DEPLOYPATH"
+    - /bin/cp -f composer.json composer.lock spark "$DEPLOYPATH"

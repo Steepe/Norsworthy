@@ -16,6 +16,7 @@ application/logs/*
 !application/logs/index.html
 !application/logs/.htaccess
 /vendor/
+.env
 **/.DS_Store
 docs/rainwqbl_norsworthy.sql
 docs/norsworthy.tar.bz2
