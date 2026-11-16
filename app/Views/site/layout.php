@@ -1,21 +1,2 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Norsworthy Farms — responsible oil palm cultivation, processing and quality products.">
-    <title><?= esc($title ?? 'Norsworthy Farms') ?></title>
-    <link rel="stylesheet" href="<?= base_url('assets/site.css') ?>">
-    <link rel="stylesheet" href="<?= base_url('assets/contact.css') ?>">
-</head>
-<body>
-<header class="site-header">
-    <a class="brand" href="<?= site_url('/') ?>"><img src="<?= base_url('assets/images/Norsworthy-Logo-1.png') ?>" alt="Norsworthy Farms"><span>Norsworthy<br><b>Farms</b></span></a>
-    <button class="nav-toggle" aria-label="Toggle navigation">Menu</button>
-    <nav class="site-nav"><a href="<?= site_url('about') ?>">About</a><a href="<?= site_url('services') ?>">Services</a><a href="<?= site_url('projects') ?>">Projects</a><a href="<?= site_url('news') ?>">News</a><a class="nav-contact" href="<?= site_url('contact') ?>">Contact us</a></nav>
-</header>
-<main><?= $this->renderSection('content') ?></main>
-<footer class="site-footer"><div><strong>Norsworthy Farms</strong><p>Growing quality. Creating value.</p></div><div><a href="<?= site_url('about') ?>">Our story</a><a href="<?= site_url('projects') ?>">Our work</a><a href="<?= site_url('contact') ?>">Contact</a></div><small>© <?= date('Y') ?> Norsworthy Farms. All rights reserved.</small></footer>
-<script>document.querySelector('.nav-toggle').onclick=()=>document.querySelector('.site-nav').classList.toggle('open')</script>
-</body>
-</html>
+<?php $segment = service('uri')->getSegment(1); $home = $segment === ''; ?>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Norsworthy Farms — responsible oil palm cultivation, processing and quality products."><title><?= esc($title ?? 'Norsworthy Farms') ?></title><link rel="stylesheet" href="<?= base_url('assets/site.css') ?>"><link rel="stylesheet" href="<?= base_url('assets/contact.css') ?>"><link rel="stylesheet" href="<?= base_url('assets/reference.css') ?>"></head><body class="<?= $home ? 'is-home' : 'is-inner' ?>"><header class="ref-header"><a class="ref-brand" href="<?= site_url('/') ?>"><img src="<?= base_url('assets/images/Norsworthy-Logo-1.png') ?>" alt="Norsworthy Farms"><span>NORSWORTHY<br><b>FARMS</b></span></a><button class="ref-menu" aria-expanded="false" aria-controls="ref-nav">Menu</button><nav id="ref-nav" class="ref-nav"><a class="<?= $segment === 'about' ? 'active' : '' ?>" href="<?= site_url('about') ?>">About</a><a class="<?= $segment === 'services' ? 'active' : '' ?>" href="<?= site_url('services') ?>">What we do</a><a class="<?= $segment === 'projects' ? 'active' : '' ?>" href="<?= site_url('projects') ?>">Projects</a><a class="<?= $segment === 'partnerships' ? 'active' : '' ?>" href="<?= site_url('partnerships') ?>">Partnerships</a><a class="<?= $segment === 'news' ? 'active' : '' ?>" href="<?= site_url('news') ?>">News</a><a class="ref-contact" href="<?= site_url('contact') ?>">Contact us</a></nav></header><main><?= $this->renderSection('content') ?></main><footer class="ref-footer"><div class="ref-footer-brand"><a class="ref-brand" href="<?= site_url('/') ?>"><img src="<?= base_url('assets/images/Norsworthy-Logo-1.png') ?>" alt=""><span>NORSWORTHY<br><b>FARMS</b></span></a><p>Growing quality. Creating value.</p></div><div><p class="foot-label">COMPANY</p><a href="<?= site_url('about') ?>">About</a><a href="<?= site_url('projects') ?>">Projects</a><a href="<?= site_url('partnerships') ?>">Partnerships</a><a href="<?= site_url('news') ?>">News</a></div><div><p class="foot-label">SERVICES</p><a href="<?= site_url('services/processing-of-crude-palm-oil') ?>">Palm oil processing</a><a href="<?= site_url('services/cultivation-of-high-breed-oil-palm-seedlings') ?>">High-breed seedlings</a><a href="<?= site_url('services/technical-palm-oil') ?>">Technical palm oil</a></div><div><p class="foot-label">CONTACT</p><a href="mailto:info@norsworthy.com.ng">info@norsworthy.com.ng</a><a href="<?= site_url('contact') ?>">Send an enquiry</a><a href="<?= site_url('contact') ?>">Nigeria</a></div><small>© <?= date('Y') ?> Norsworthy Farms. All rights reserved.</small></footer><script>const b=document.querySelector('.ref-menu'),n=document.querySelector('.ref-nav');b&&b.addEventListener('click',()=>{const open=n.classList.toggle('open');b.textContent=open?'Close':'Menu';b.setAttribute('aria-expanded',open)})</script></body></html>

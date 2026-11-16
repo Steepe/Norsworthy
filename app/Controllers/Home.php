@@ -10,6 +10,7 @@ class Home extends BaseController
     {
         $content = new ContentModel();
         return view('site/home', [
+            'services' => $content->where(['type' => 'service', 'status' => 'published'])->orderBy('published_at', 'DESC')->findAll(3),
             'projects' => $content->where(['type' => 'project', 'status' => 'published'])->orderBy('published_at', 'DESC')->findAll(3),
             'articles' => $content->where(['type' => 'post', 'status' => 'published'])->orderBy('published_at', 'DESC')->findAll(3),
         ]);

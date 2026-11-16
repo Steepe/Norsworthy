@@ -1,4 +1,6 @@
-<?= $this->extend('site/layout') ?>
-<?= $this->section('content') ?>
-<section class="inner-hero" style="background-image:linear-gradient(90deg,rgba(15,42,29,.8),rgba(15,42,29,.25)),url('<?= base_url($item['cover_image'] ?: 'assets/images/palm_oil.jpg') ?>')"><p class="eyebrow"><?= esc($item['type']) ?></p><h1><?= esc($item['title']) ?></h1><p><?= esc($item['excerpt']) ?></p></section><article class="prose"><?= $item['body'] ?></article>
+<?= $this->extend('site/layout') ?><?= $this->section('content') ?>
+<?php $prefix = $item['type'] === 'service' ? 'services' : ($item['type'] === 'project' ? 'projects' : 'news'); ?>
+<section class="inner-hero-ref detail" style="background-image:linear-gradient(100deg,rgba(14,38,28,.88),rgba(14,38,28,.28)),url('<?= base_url($item['cover_image']) ?>')"><div><p class="mono lime"><?= esc(strtoupper($item['type'])) ?></p><div class="crumbs"><a href="<?= site_url('/') ?>">Home</a><span>/</span><a href="<?= site_url($prefix) ?>"><?= esc(ucfirst($item['type']) . 's') ?></a><span>/</span><span><?= esc($item['title']) ?></span></div><h1><?= esc($item['title']) ?></h1><p><?= esc($item['excerpt']) ?></p></div></section>
+<section class="detail-layout"><aside><p class="mono">NORSWORTHY FARMS</p><div><span>TYPE</span><b><?= esc(ucfirst($item['type'])) ?></b></div><div><span>STATUS</span><b><?= esc(ucfirst($item['status'])) ?></b></div><div><span>LOCATION</span><b>Nigeria</b></div><a class="dark-button" href="<?= site_url('contact') ?>?type=<?= urlencode($item['type'] === 'service' ? $item['title'] : 'Partnership') ?>">Make an enquiry <span>→</span></a></aside><article class="rich-prose"><?= $item['body'] ?></article></section>
+<section class="detail-cta"><p class="mono lime">READY TO TALK?</p><h2>Let’s build something lasting.</h2><a class="lime-button" href="<?= site_url('contact') ?>">Start a conversation <span>→</span></a></section>
 <?= $this->endSection() ?>

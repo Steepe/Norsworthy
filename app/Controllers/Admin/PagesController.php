@@ -3,6 +3,7 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
+use App\Models\ContentModel;
 use App\Models\PageModel;
 
 class PagesController extends BaseController
@@ -16,7 +17,22 @@ class PagesController extends BaseController
 
     public function index(): string
     {
-        return view('admin/pages/index', ['pages' => $this->pages->orderBy('updated_at', 'DESC')->findAll()]);
+        $tab = (string) ($this->request->getGet('tab') ?: 'pages');
+        $tabs = ['pages', 'services', 'projects', 'news'];
+        if (! in_array($tab, $tabs, true)) {
+            $tab = 'pages';
+        }
+
+        $contentType = ['services' => 'service', 'projects' => 'project', 'news' => 'post'][$tab] ?? null;
+        $items = $contentType ? (new ContentModel())->where('type', $contentType)->orderBy('updated_at', 'DESC')->findAll() : $this->pages->orderBy('updated_at', 'DESC')->findAll();
+        $counts = [
+            'pages' => $this->pages->countAllResults(),
+            'services' => (new ContentModel())->where('type', 'service')->countAllResults(),
+            'projects' => (new ContentModel())->where('type', 'project')->countAllResults(),
+            'news' => (new ContentModel())->where('type', 'post')->countAllResults(),
+        ];
+
+        return view('admin/pages/index', compact('items', 'tab', 'counts', 'contentType'));
     }
 
     public function form(?int $id = null): string

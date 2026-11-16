@@ -36,7 +36,7 @@ class ContentController extends BaseController
             'seo_title' => trim((string) $this->request->getPost('seo_title')), 'seo_description' => trim((string) $this->request->getPost('seo_description')),
             'status' => (string) $this->request->getPost('status'), 'is_featured' => $this->request->getPost('is_featured') ? 1 : 0,
         ];
-        if (! $this->validateData($data, ['type' => 'required|in_list[project,post]', 'title' => 'required|max_length[191]', 'slug' => 'required|alpha_dash|max_length[191]', 'status' => 'required|in_list[draft,published]'])) return redirect()->back()->withInput()->with('error', 'Please fix the highlighted content details.');
+        if (! $this->validateData($data, ['type' => 'required|in_list[service,project,post]', 'title' => 'required|max_length[191]', 'slug' => 'required|alpha_dash|max_length[191]', 'status' => 'required|in_list[draft,published]'])) return redirect()->back()->withInput()->with('error', 'Please fix the highlighted content details.');
         $duplicate = $this->content->where('slug', $data['slug']);
         if ($id) $duplicate->where('id !=', $id);
         if ($duplicate->first()) return redirect()->back()->withInput()->with('error', 'That URL slug is already in use.');

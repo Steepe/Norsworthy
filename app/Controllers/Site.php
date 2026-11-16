@@ -20,12 +20,17 @@ class Site extends BaseController
 
     public function services(): string
     {
-        return view('site/listing', ['title' => 'What we do', 'intro' => 'From seedlings to processing, our practical expertise delivers value across the palm supply chain.', 'items' => $this->content('project')]);
+        return view('site/listing', ['kind' => 'service', 'title' => 'From seedlings to processing.', 'eyebrow' => 'What we do', 'intro' => 'Practical expertise that delivers value across the palm supply chain — for buyers, farmers and industry.', 'items' => $this->content('service')]);
     }
 
     public function projects(): string
     {
-        return $this->services();
+        return view('site/listing', ['kind' => 'project', 'title' => 'Milestones in the field.', 'eyebrow' => 'Projects', 'intro' => 'The investments and developments behind our nursery, estates and mill.', 'items' => $this->content('project')]);
+    }
+
+    public function service(string $slug): string
+    {
+        return $this->single($slug, 'service');
     }
 
     public function project(string $slug): string
@@ -35,12 +40,17 @@ class Site extends BaseController
 
     public function news(): string
     {
-        return view('site/listing', ['title' => 'News & insights', 'intro' => 'Updates from Norsworthy Farms and the wider agricultural value chain.', 'items' => $this->content('post')]);
+        return view('site/listing', ['kind' => 'post', 'title' => 'Updates from the field.', 'eyebrow' => 'News & insights', 'intro' => 'News from Norsworthy Farms and the wider agricultural value chain.', 'items' => $this->content('post')]);
     }
 
     public function article(string $slug): string
     {
         return $this->single($slug, 'post');
+    }
+
+    public function partnerships(): string
+    {
+        return view('site/partnerships');
     }
 
     public function contact(): string

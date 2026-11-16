@@ -19,3 +19,9 @@ application/logs/*
 **/.DS_Store
 docs/rainwqbl_norsworthy.sql
 docs/norsworthy.tar.bz2
+writable/debugbar/*
+writable/logs/*
+writable/session/*
+!writable/logs/index.html
+
+.idea/

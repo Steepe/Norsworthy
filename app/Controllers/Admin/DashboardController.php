@@ -12,12 +12,15 @@ class DashboardController extends BaseController
 {
     public function index(): string
     {
+        $inquiries = new InquiryModel();
+
         return view('admin/dashboard', [
             'pageCount' => (new PageModel())->countAllResults(),
             'contentCount' => (new ContentModel())->countAllResults(),
             'mediaCount' => (new MediaModel())->countAllResults(),
-            'newInquiryCount' => (new InquiryModel())->where('status', 'new')->countAllResults(),
+            'newInquiryCount' => $inquiries->where('status', 'new')->countAllResults(),
             'recent' => (new ContentModel())->orderBy('updated_at', 'DESC')->findAll(5),
+            'inquiries' => $inquiries->orderBy('created_at', 'DESC')->findAll(3),
         ]);
     }
 }
