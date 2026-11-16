@@ -1,0 +1,234 @@
+ERROR - 2026-11-09 15:51:24 --> Error connecting to the database: mysqli_sql_exception: Access denied for user ''@'localhost' (using password: NO) in /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:210
+Stack trace:
+#0 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(210): mysqli->real_connect('localhost', '', Object(SensitiveParameterValue), '', 3306, '', 0)
+#1 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Database/BaseConnection.php(549): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Database/BaseConnection.php(815): CodeIgniter\Database\BaseConnection->initialize()
+#3 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Model.php(256): CodeIgniter\Database\BaseBuilder->get()
+#5 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(3, 0)
+#6 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/app/Controllers/Home.php(13): CodeIgniter\BaseModel->findAll(3)
+#7 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/CodeIgniter.php(972): App\Controllers\Home->index()
+#8 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/CodeIgniter.php(518): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/public/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user ''@'localhost' (using password: NO) in /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:240
+Stack trace:
+#0 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Database/BaseConnection.php(549): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Database/BaseConnection.php(815): CodeIgniter\Database\BaseConnection->initialize()
+#2 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Model.php(256): CodeIgniter\Database\BaseBuilder->get()
+#4 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(3, 0)
+#5 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/app/Controllers/Home.php(13): CodeIgniter\BaseModel->findAll(3)
+#6 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/CodeIgniter.php(972): App\Controllers\Home->index()
+#7 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/CodeIgniter.php(518): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/public/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2026-11-09 15:51:24 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user ''@'localhost' (using password: NO)
+[Method: GET, Route: /]
+in SYSTEMPATH/Database/BaseConnection.php on line 600.
+ 1 SYSTEMPATH/Database/BaseConnection.php(815): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `content_items`
+WHERE `type` = :type:
+AND `status` = :status:
+ORDER BY `published_at` DESC
+ LIMIT 3', [...], false)
+ 3 SYSTEMPATH/Model.php(256): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(3, 0)
+ 5 APPPATH/Controllers/Home.php(13): CodeIgniter\BaseModel->findAll(3)
+ 6 SYSTEMPATH/CodeIgniter.php(972): App\Controllers\Home->index()
+ 7 SYSTEMPATH/CodeIgniter.php(518): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-11-09 15:53:55 --> Error connecting to the database: mysqli_sql_exception: Access denied for user ''@'localhost' (using password: NO) in /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:210
+Stack trace:
+#0 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(210): mysqli->real_connect('localhost', '', Object(SensitiveParameterValue), '', 3306, '', 0)
+#1 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Database/BaseConnection.php(549): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Database/BaseConnection.php(815): CodeIgniter\Database\BaseConnection->initialize()
+#3 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Model.php(256): CodeIgniter\Database\BaseBuilder->get()
+#5 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(3, 0)
+#6 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/app/Controllers/Home.php(13): CodeIgniter\BaseModel->findAll(3)
+#7 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/CodeIgniter.php(972): App\Controllers\Home->index()
+#8 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/CodeIgniter.php(518): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/public/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user ''@'localhost' (using password: NO) in /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:240
+Stack trace:
+#0 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Database/BaseConnection.php(549): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Database/BaseConnection.php(815): CodeIgniter\Database\BaseConnection->initialize()
+#2 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Model.php(256): CodeIgniter\Database\BaseBuilder->get()
+#4 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(3, 0)
+#5 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/app/Controllers/Home.php(13): CodeIgniter\BaseModel->findAll(3)
+#6 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/CodeIgniter.php(972): App\Controllers\Home->index()
+#7 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/CodeIgniter.php(518): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/public/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2026-11-09 15:53:55 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user ''@'localhost' (using password: NO)
+[Method: GET, Route: /]
+in SYSTEMPATH/Database/BaseConnection.php on line 600.
+ 1 SYSTEMPATH/Database/BaseConnection.php(815): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `content_items`
+WHERE `type` = :type:
+AND `status` = :status:
+ORDER BY `published_at` DESC
+ LIMIT 3', [...], false)
+ 3 SYSTEMPATH/Model.php(256): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(3, 0)
+ 5 APPPATH/Controllers/Home.php(13): CodeIgniter\BaseModel->findAll(3)
+ 6 SYSTEMPATH/CodeIgniter.php(972): App\Controllers\Home->index()
+ 7 SYSTEMPATH/CodeIgniter.php(518): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-11-09 15:57:42 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'norsworthy' in /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:210
+Stack trace:
+#0 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(210): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'norsworthy', 3306, '', 0)
+#1 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Database/BaseConnection.php(549): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Database/BaseConnection.php(815): CodeIgniter\Database\BaseConnection->initialize()
+#3 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Model.php(256): CodeIgniter\Database\BaseBuilder->get()
+#5 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(3, 0)
+#6 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/app/Controllers/Home.php(13): CodeIgniter\BaseModel->findAll(3)
+#7 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/CodeIgniter.php(972): App\Controllers\Home->index()
+#8 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/CodeIgniter.php(518): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/public/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'norsworthy' in /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:240
+Stack trace:
+#0 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Database/BaseConnection.php(549): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Database/BaseConnection.php(815): CodeIgniter\Database\BaseConnection->initialize()
+#2 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Model.php(256): CodeIgniter\Database\BaseBuilder->get()
+#4 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(3, 0)
+#5 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/app/Controllers/Home.php(13): CodeIgniter\BaseModel->findAll(3)
+#6 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/CodeIgniter.php(972): App\Controllers\Home->index()
+#7 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/CodeIgniter.php(518): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/vendor/codeigniter4/framework/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 /Users/oluwamayowasteepe/Sites/localhost/norsworthy/public/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2026-11-09 15:57:42 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'norsworthy'
+[Method: GET, Route: /]
+in SYSTEMPATH/Database/BaseConnection.php on line 600.
+ 1 SYSTEMPATH/Database/BaseConnection.php(815): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1660): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `content_items`
+WHERE `type` = :type:
+AND `status` = :status:
+ORDER BY `published_at` DESC
+ LIMIT 3', [...], false)
+ 3 SYSTEMPATH/Model.php(256): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(3, 0)
+ 5 APPPATH/Controllers/Home.php(13): CodeIgniter\BaseModel->findAll(3)
+ 6 SYSTEMPATH/CodeIgniter.php(972): App\Controllers\Home->index()
+ 7 SYSTEMPATH/CodeIgniter.php(518): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-11-09 15:58:59 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'norsworthy' in /Users/oluwamayowasteepe/Sites/localhost/Norsworthy/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:210
+Stack trace:
+#0 /Users/oluwamayowasteepe/Sites/localhost/Norsworthy/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(210): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'norsworthy', 3306, '', 0)
+#1 /Users/oluwamayowasteepe/Sites/localhost/Norsworthy/vendor/codeigniter4/framework/system/Database/BaseConnection.php(549): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /Users/oluwamayowasteepe/Sites/localhost/Norsworthy/vendor/codeigniter4/framework/system/Database/BaseConnection.php(815): CodeIgniter\Database\BaseConnection->initialize()
+#3 /Users/oluwamayowasteepe/Sites/localhost/Norsworthy/vendor/codeigniter4/framework/system/Database/BaseConnection.php(1732): CodeIgniter\Database\BaseConnection->query('SHOW TABLES FRO...')
+#4 /Users/oluwamayowasteepe/Sites/localhost/Norsworthy/vendor/codeigniter4/framework/system/Database/BaseConnection.php(1752): CodeIgniter\Database\BaseConnection->listTables()
+#5 /Users/oluwamayowasteepe/Sites/localhost/Norsworthy/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(831): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+#6 /Users/oluwamayowasteepe/Sites/localhost/Norsworthy/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(173): CodeIgniter\Database\MigrationRunner->ensureTable()
+#7 /Users/oluwamayowasteepe/Sites/localhost/Norsworthy/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(89): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /Users/oluwamayowasteepe/Sites/localhost/Norsworthy/vendor/codeigniter4/framework/system/CLI/SignalTrait.php(243): CodeIgniter\Commands\Database\Migrate::CodeIgniter\Commands\Database\{closure}()
+#9 /Users/oluwamayowasteepe/Sites/localhost/Norsworthy/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(88): CodeIgniter\Commands\Database\Migrate->withSignalsBlocked(Object(Closure))
+#10 /Users/oluwamayowasteepe/Sites/localhost/Norsworthy/vendor/codeigniter4/framework/system/CLI/Commands.php(72): CodeIgniter\Commands\Database\Migrate->run(Array)
+#11 /Users/oluwamayowasteepe/Sites/localhost/Norsworthy/vendor/codeigniter4/framework/system/CLI/Console.php(45): CodeIgniter\CLI\Commands->run('migrate', Array)
+#12 /Users/oluwamayowasteepe/Sites/localhost/Norsworthy/vendor/codeigniter4/framework/system/Boot.php(444): CodeIgniter\CLI\Console->run()
+#13 /Users/oluwamayowasteepe/Sites/localhost/Norsworthy/vendor/codeigniter4/framework/system/Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#14 /Users/oluwamayowasteepe/Sites/localhost/Norsworthy/spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#15 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'norsworthy' in /Users/oluwamayowasteepe/Sites/localhost/Norsworthy/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:240
+Stack trace:
+#0 /Users/oluwamayowasteepe/Sites/localhost/Norsworthy/vendor/codeigniter4/framework/system/Database/BaseConnection.php(549): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /Users/oluwamayowasteepe/Sites/localhost/Norsworthy/vendor/codeigniter4/framework/system/Database/BaseConnection.php(815): CodeIgniter\Database\BaseConnection->initialize()
+#2 /Users/oluwamayowasteepe/Sites/localhost/Norsworthy/vendor/codeigniter4/framework/system/Database/BaseConnection.php(1732): CodeIgniter\Database\BaseConnection->query('SHOW TABLES FRO...')
+#3 /Users/oluwamayowasteepe/Sites/localhost/Norsworthy/vendor/codeigniter4/framework/system/Database/BaseConnection.php(1752): CodeIgniter\Database\BaseConnection->listTables()
+#4 /Users/oluwamayowasteepe/Sites/localhost/Norsworthy/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(831): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+#5 /Users/oluwamayowasteepe/Sites/localhost/Norsworthy/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(173): CodeIgniter\Database\MigrationRunner->ensureTable()
+#6 /Users/oluwamayowasteepe/Sites/localhost/Norsworthy/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(89): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 /Users/oluwamayowasteepe/Sites/localhost/Norsworthy/vendor/codeigniter4/framework/system/CLI/SignalTrait.php(243): CodeIgniter\Commands\Database\Migrate::CodeIgniter\Commands\Database\{closure}()
+#8 /Users/oluwamayowasteepe/Sites/localhost/Norsworthy/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(88): CodeIgniter\Commands\Database\Migrate->withSignalsBlocked(Object(Closure))
+#9 /Users/oluwamayowasteepe/Sites/localhost/Norsworthy/vendor/codeigniter4/framework/system/CLI/Commands.php(72): CodeIgniter\Commands\Database\Migrate->run(Array)
+#10 /Users/oluwamayowasteepe/Sites/localhost/Norsworthy/vendor/codeigniter4/framework/system/CLI/Console.php(45): CodeIgniter\CLI\Commands->run('migrate', Array)
+#11 /Users/oluwamayowasteepe/Sites/localhost/Norsworthy/vendor/codeigniter4/framework/system/Boot.php(444): CodeIgniter\CLI\Console->run()
+#12 /Users/oluwamayowasteepe/Sites/localhost/Norsworthy/vendor/codeigniter4/framework/system/Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#13 /Users/oluwamayowasteepe/Sites/localhost/Norsworthy/spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#14 {main}
+ERROR - 2026-11-09 16:01:55 --> Duplicate entry 'admin@norsworthy.local' for key 'users.email'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 316.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(316): mysqli->query('INSERT INTO `users` (`name`, `email`, `password_hash`, `role`, `created_at`, `updated_at`) VALUES (\'Site Administrator\', \'admin@norsworthy.local\', \'$2y$12$u/2VyRSvHOcSKM5fAau99.Y.ihkHmOTgUTUr3b8vCZk6DHDBta3sC\', \'admin\', \'2026-11-09 16:01:55\', \'2026-11-09 16:01:55\')', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(928): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `users` (`name`, `email`, `password_hash`, `role`, `created_at`, `updated_at`) VALUES (\'Site Administrator\', \'admin@norsworthy.local\', \'$2y$12$u/2VyRSvHOcSKM5fAau99.Y.ihkHmOTgUTUr3b8vCZk6DHDBta3sC\', \'admin\', \'2026-11-09 16:01:55\', \'2026-11-09 16:01:55\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(845): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `users` (`name`, `email`, `password_hash`, `role`, `created_at`, `updated_at`) VALUES (\'Site Administrator\', \'admin@norsworthy.local\', \'$2y$12$u/2VyRSvHOcSKM5fAau99.Y.ihkHmOTgUTUr3b8vCZk6DHDBta3sC\', \'admin\', \'2026-11-09 16:01:55\', \'2026-11-09 16:01:55\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2362): CodeIgniter\Database\BaseConnection->query('INSERT INTO `users` (`name`, `email`, `password_hash`, `role`, `created_at`, `updated_at`) VALUES (:name:, :email:, :password_hash:, :role:, :created_at:, :updated_at:)', [...], false)
+ 5 APPPATH/Database/Seeds/NorsworthySeeder.php(12): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 SYSTEMPATH/Database/Seeder.php(155): App\Database\Seeds\NorsworthySeeder->run()
+ 7 SYSTEMPATH/Commands/Database/Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Seeds\\NorsworthySeeder')
+ 8 SYSTEMPATH/CLI/Commands.php(72): CodeIgniter\Commands\Database\Seed->run([])
+ 9 SYSTEMPATH/CLI/Console.php(45): CodeIgniter\CLI\Commands->run('db:seed', [...])
+10 SYSTEMPATH/Boot.php(444): CodeIgniter\CLI\Console->run()
+11 SYSTEMPATH/Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+12 ROOTPATH/spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+CRITICAL - 2026-11-09 16:07:13 --> ParseError: syntax error, unexpected token "\", expecting ")"
+[Method: CLI, Route: wp:import-pages/docs/rainwqbl_norsworthy.sql]
+in APPPATH/Commands/ImportWordPressPages.php on line 116.
+ 1 VENDORPATH/composer/ClassLoader.php(427): {closure:Composer\Autoload\ClassLoader::initializeIncludeClosure():575}('/Users/oluwamayowasteepe/Sites/localhost/Norsworthy/vendor/composer/../../app/Commands/ImportWordPressPages.php')
+ 2 [internal function]: Composer\Autoload\ClassLoader->loadClass('App\\Commands\\ImportWordPressPages')
+ 3 SYSTEMPATH/Autoloader/FileLocator.php(304): class_exists('App\\Commands\\ImportWordPressPages')
+ 4 SYSTEMPATH/CLI/Commands.php(111): CodeIgniter\Autoloader\FileLocator->findQualifiedNameFromPath('/Users/oluwamayowasteepe/Sites/localhost/Norsworthy/app/Commands/ImportWordPressPages.php')
+ 5 SYSTEMPATH/CLI/Commands.php(51): CodeIgniter\CLI\Commands->discoverCommands()
+ 6 SYSTEMPATH/Config/Services.php(177): CodeIgniter\CLI\Commands->__construct()
+ 7 SYSTEMPATH/Config/BaseService.php(325): CodeIgniter\Config\Services::commands(false)
+ 8 SYSTEMPATH/Config/BaseService.php(264): CodeIgniter\Config\BaseService::__callStatic('commands', [...])
+ 9 SYSTEMPATH/Config/Services.php(174): CodeIgniter\Config\BaseService::getSharedInstance('commands')
+10 SYSTEMPATH/Config/BaseService.php(334): CodeIgniter\Config\Services::commands()
+11 SYSTEMPATH/Config/BaseService.php(203): CodeIgniter\Config\BaseService::__callStatic('commands', [])
+12 SYSTEMPATH/Common.php(1095): CodeIgniter\Config\BaseService::get('commands')
+13 SYSTEMPATH/CLI/Console.php(45): service('commands')
+14 SYSTEMPATH/Boot.php(444): CodeIgniter\CLI\Console->run()
+15 SYSTEMPATH/Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+16 ROOTPATH/spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+DEBUG - 2026-11-09 20:36:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-11-09 20:36:20 --> CSRF token verified.
+DEBUG - 2026-11-09 20:36:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-09 20:36:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-11-09 20:36:20 --> CSRF token verified.
+DEBUG - 2026-11-09 20:36:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-09 20:36:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-09 20:37:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-09 20:37:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
