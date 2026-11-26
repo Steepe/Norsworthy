@@ -1,4 +1,4 @@
-<?php $segment = service('uri')->getSegment(1); $home = $segment === ''; ?>
+<?php $segment = service('uri')->getSegment(1); $home = $segment === ''; $assetVersion = static fn (string $path): string => base_url($path) . '?v=' . substr(hash_file('sha256', FCPATH . $path), 0, 12); ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Norsworthy Farms — responsible oil palm cultivation, processing and quality products.">
   <title><?= esc($title ?? 'Norsworthy Farms') ?></title>
-  <link rel="stylesheet" href="<?= base_url('assets/site.css') ?>">
-  <link rel="stylesheet" href="<?= base_url('assets/contact.css') ?>">
-  <link rel="stylesheet" href="<?= base_url('assets/reference.css') ?>">
+  <link rel="stylesheet" href="<?= esc($assetVersion('assets/site.css'), 'attr') ?>">
+  <link rel="stylesheet" href="<?= esc($assetVersion('assets/contact.css'), 'attr') ?>">
+  <link rel="stylesheet" href="<?= esc($assetVersion('assets/reference.css'), 'attr') ?>">
 </head>
 <body class="<?= $home ? 'is-home' : 'is-inner' ?>">
   <header class="ref-header">
