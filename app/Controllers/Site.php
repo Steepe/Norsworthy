@@ -92,6 +92,7 @@ class Site extends BaseController
         if (! $item) {
             throw PageNotFoundException::forPageNotFound();
         }
-        return view('site/item', compact('item'));
+        $related = array_values(array_filter($this->content($type), static fn ($other) => $other['id'] !== $item['id']));
+        return view('site/item', compact('item', 'related'));
     }
 }

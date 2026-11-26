@@ -3,4 +3,6 @@ deployment:
   tasks:
     # The domain serves this project's public/ directory; deploy the application one level above it.
     - export DEPLOYPATH=/home/creyjzkn/peanel.com/norsworthy
-    - /bin/cp -Rf app public system writable composer.json composer.lock spark "$DEPLOYPATH"
+    # Preserve production environment, dependencies, uploads, sessions and logs.
+    - /bin/cp -Rf app public composer.json composer.lock spark "$DEPLOYPATH"
+    - cd "$DEPLOYPATH" && php spark migrate --all
